@@ -20,7 +20,7 @@ cmake_policy(SET CMP0008 NEW)
 
 ### DEPENDENCIES ###########################################################
 
-FIND_PACKAGE( ILCUTIL COMPONENTS ILCSOFT_CMAKE_MODULES REQUIRED )
+FIND_PACKAGE( ILCUTIL COMPONENTS ILCSOFT_CMAKE_MODULES streamlog REQUIRED )
 
 # load default settings from ILCSOFT_CMAKE_MODULES
 INCLUDE( ilcsoft_default_settings )
@@ -32,7 +32,7 @@ FIND_PACKAGE( LCIO REQUIRED )
 FIND_PACKAGE( GEAR REQUIRED )
 FIND_PACKAGE( KalTest 1.5 REQUIRED )
 FIND_PACKAGE( ROOT REQUIRED )
-# FIND_PACKAGE( streamlog REQUIRED )
+FIND_PACKAGE( streamlog REQUIRED )
 
 #NB: need ROOT before KalTest (needed on case sensitive systems and classes that differ only in capitalization)
 FOREACH( pkg Marlin ROOT KalTest LCIO GEAR streamlog)
@@ -142,5 +142,5 @@ DISPLAY_STD_VARIABLES()
 
 
 # generate and install following configuration files
-GENERATE_PACKAGE_CONFIGURATION_FILES( KalDetConfig.cmake KalDetConfigVersion.cmake)
+GENERATE_PACKAGE_CONFIGURATION_FILES( KalDetConfig.cmake KalDetConfigVersion.cmake KalDetLibDeps.cmake )
 
